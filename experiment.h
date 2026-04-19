@@ -1,6 +1,10 @@
 #ifndef EXPERIMENT_H
 #define EXPERIMENT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void dependent_action();
 void independent_action();
 
@@ -23,6 +27,10 @@ void conditional_operator_clean(int condition_flag, int val1, int val2);
 //Post Incremnt/Decrement
 void post_increment_confusing(int base_value);
 void post_increment_clean(int base_value);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
