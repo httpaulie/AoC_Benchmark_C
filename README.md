@@ -1,4 +1,4 @@
-# Atoms of Confusion C Benchmark
+# Atoms of Confusion Benchmark Suite
 
 This is an experimental evaluation tool for analyzing the impact of Atoms of Confusion on runtime performance and hardware utilization compared to clean code equivalents.
 
