@@ -1,6 +1,6 @@
 # Atoms of Confusion C Benchmark
 
-This is an experimental C tool for evaluating the impact of Atoms of Confusion on runtime performance compared to clean code.
+This is an experimental evaluation tool for analyzing the impact of Atoms of Confusion on runtime performance and hardware utilization compared to clean code equivalents.
 
 ## About the Project
 
@@ -8,18 +8,13 @@ This project consists of a suite of micro-benchmarks designed to test code snipp
 
 The main goal is to answer the question: *Does the structural confusion in code also result in performance penalties for the machine, or is it merely a cognitive burden for the programmer?*
 
-⚠️ **Warning:** This is an work in progress. It serves purely as a laboratory for academic and personal testing and experimentation, and should not be considered a professional benchmarking tool. New atoms and tests will be added over time.
+⚠️ **Warning:** This is an work in progress. It serves purely as a laboratory for academic and personal testing and experimentation. New atoms and tests will be added over time.
 
 ## Quickstart Guide
 
-If you already have the compiled executable and want to use the default parameters, simply open a terminal in the project folder and run:
+To run the benchmark and see the statistical table, you must pass the name of the atom you want to test as an argument.
 
-### On Windows:
-```bash
-.\benchmark
-```
-
-### On Linux / Mac:
+### On Windows/Linux/Mac:
 ```bash
 ./benchmark
 ```
@@ -28,25 +23,26 @@ When run without arguments (or depending on the implementation), the program wil
 
 ## Compilation and Customization
 
-If you want to change the experiment parameters (such as increasing or decreasing the workload/number of iterations in `main.c`), you will need to recompile the code.
+If you want to alter the experiment parameters or add new atoms, you will need to recompile the code. 
 
 ### Pre-Requisites
-* Having **GCC** (GNU Compiler Collection) installed in your system.
+* **G++** (GNU C++ Compiler).
+* *(Optional)* **Valgrind** (Linux/WSL).
 
 ### Compiling
 Open the terminal in the project root directory and run the following command:
 
 ```bash
-gcc main.c functions.c -O0 -o benchmark
+g++ main.cpp functions.c -O0 -g -o benchmark
 ```
 
-### Optimization Flag (`-O0`)
-By default, the command above uses the `-O0` flag. This **disables** the compiler optimizations. 
-* **Why is this important?** Modern compilers often rewrite or “clean up” poorly structured code during compilation. To test the actual cost of the confusion atom on the CPU, we need to force the compiler to translate the code exactly as it was written.
-* If you want to test whether the compiler can “save” the performance of messy code, feel free to change this flag to `-O2` or `-O3` and recompile.
+### Important Compilation Flags
+* `-O0`: By default, the command above uses the `-O0` flag. This **disables** the compiler optimizations. Modern compilers often rewrite or “clean up” poorly structured code during compilation. To test the actual cost of the atom of confusion on the CPU, we need to force the compiler to translate the code exactly as it was written. (Change to `-O2` or `-O3` to test compiler mitigation).
+* `-g`: Generates debugging information, which is crucial if you plan to run the executable through Valgrind to track cache misses back to the exact line of code.
 
 ## Repository Structure
 
-* `main.c`: It includes the workload, iteration control, measurement timers, and the command-line interface.
+* `main.cpp`: It includes the workload, nanobench setup, and the command-line interface.
 * `functions.c`: Contains the paired implementations (Confused vs. Clean) for each atom studied.
 * `experiment.h`: Header file containing function signatures.
+* `nanobench.h`: The external header-only benchmarking library.
