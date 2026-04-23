@@ -21,16 +21,16 @@ To run the benchmark and see the statistical table, you must pass the name of th
 
 When run without arguments (or depending on the implementation), the program will display a help menu on the terminal listing the atom options available for testing.
 
-##Automated Data Collection
+## Automated Data Collection
 This repository includes an automated data collection script. The script runs a specified atom benchmark multiple times, merges the data from nanobench and Valgrind, and outputs a .csv file.
 
-###Prerequisites
+### Prerequisites
 This script requires a Linux environment (or WSL) with Valgrind installed. Before using it for the first time, grant execution permissions:
 ```bash
 chmod +x collector.sh
 ```
 
-###Usage
+### Usage
 Run the script by passing the name of the atom you want to test and, optionally, the number of executions (defaults to 30).
 ```bash
 ./collector.sh <atom_name> [number_of_executions]
