@@ -61,3 +61,4 @@ g++ main.cpp functions.c -O0 -g -o benchmark
 * `functions.c`: Contains the paired implementations (Confused vs. Clean) for each atom studied.
 * `experiment.h`: Header file containing function signatures.
 * `nanobench.h`: The external header-only benchmarking library.
+* `collector.h`: Bash script for automated benchmark iteration, data extraction, and CSV generation.
