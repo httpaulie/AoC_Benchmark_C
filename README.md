@@ -8,7 +8,7 @@ This project consists of a suite of micro-benchmarks designed to test code snipp
 
 The main goal is to answer the question: *Does the structural confusion in code also result in performance penalties for the machine, or is it merely a cognitive burden for the programmer?*
 
-⚠️ **Warning:** This is an work in progress. It serves purely as a laboratory for academic and personal testing and experimentation. New atoms and tests will be added over time.
+⚠️ **Warning:** This serves purely as a laboratory for academic and personal testing and experimentation.
 
 ## Quickstart Guide
 
@@ -16,7 +16,7 @@ To run the benchmarks, you must pass the name of the atom you want to test as an
 
 ### 1. CPU and Performance Profiling (Nanobench):
 ```bash
-./benchmark_linux <atom_name>
+./benchmark <atom_name>
 ```
 ### 2. CPU and Performance Profiling (Nanobench):
 ```bash
@@ -62,7 +62,7 @@ Open the terminal in the project root directory. You must compile the two separa
 ## 1. Compile the CPU Benchmark
 
 ```bash
-g++ main.cpp functions.c -O0 -g -o benchmark_linux
+g++ main.cpp functions.c -O0 -g -o benchmark
 ```
 
 ## 2. Compile the Memory Benchmark

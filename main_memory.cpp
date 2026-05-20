@@ -13,6 +13,16 @@ int main(int argc, char *argv[]) {
         printf("  infix_precedence\n");
         printf("  conditional_operator\n");
         printf("  post_increment\n");
+        printf("  repurposed_variable\n");
+        printf("  pre_increment\n");
+        printf("  comma_operator\n");
+        printf("  reversed_subscripts\n");
+        printf("  type_conversion\n");
+        printf("  logic_as_control_flow\n");
+        printf("  assignment_as_value\n");
+        printf("  macro_operator_precedence\n");
+        printf("  preprocessor_in_statement\n");
+        printf("  change_of_literal_encoding\n");
         return 1;
     }
 
@@ -59,6 +69,46 @@ int main(int argc, char *argv[]) {
     else if (strcmp(argv[1], "post_increment") == 0) {
         for(int i = 0; i < iterations; i++) post_increment_confusing(values_a[i % data_size]);
         for(int i = 0; i < iterations; i++) post_increment_clean(values_a[i % data_size]);
+    }
+    else if (strcmp(argv[1], "repurposed_variable") == 0) {
+        for(int i = 0; i < iterations; i++) repurposed_variable_confusing(values_a[i % data_size], values_b[i % data_size]);
+        for(int i = 0; i < iterations; i++) repurposed_variable_clean(values_a[i % data_size], values_b[i % data_size]);
+    }
+    else if (strcmp(argv[1], "pre_increment") == 0) {
+        for(int i = 0; i < iterations; i++) pre_increment_confusing(values_a[i % data_size]);
+        for(int i = 0; i < iterations; i++) pre_increment_clean(values_a[i % data_size]);
+    }
+    else if (strcmp(argv[1], "comma_operator") == 0) {
+        for(int i = 0; i < iterations; i++) comma_operator_confusing(values_a[i % data_size]);
+        for(int i = 0; i < iterations; i++) comma_operator_clean(values_a[i % data_size]);
+    }
+    else if (strcmp(argv[1], "reversed_subscripts") == 0) {
+        for(int i = 0; i < iterations; i++) reversed_subscripts_confusing((i % data_size) % 3);
+        for(int i = 0; i < iterations; i++) reversed_subscripts_clean((i % data_size) % 3);
+    }
+    else if (strcmp(argv[1], "type_conversion") == 0) {
+        for(int i = 0; i < iterations; i++) type_conversion_confusing(values_a[i % data_size], values_b[i % data_size]);
+        for(int i = 0; i < iterations; i++) type_conversion_clean(values_a[i % data_size], values_b[i % data_size]);
+    }
+    else if (strcmp(argv[1], "logic_as_control_flow") == 0) {
+        for(int i = 0; i < iterations; i++) logic_as_control_flow_confusing(conditions[i % data_size]);
+        for(int i = 0; i < iterations; i++) logic_as_control_flow_clean(conditions[i % data_size]);
+    }
+    else if (strcmp(argv[1], "assignment_as_value") == 0) {
+        for(int i = 0; i < iterations; i++) assignment_as_value_confusing(values_a[i % data_size]);
+        for(int i = 0; i < iterations; i++) assignment_as_value_clean(values_a[i % data_size]);
+    }
+    else if (strcmp(argv[1], "macro_operator_precedence") == 0) {
+        for(int i = 0; i < iterations; i++) macro_operator_precedence_confusing(values_a[i % data_size]);
+        for(int i = 0; i < iterations; i++) macro_operator_precedence_clean(values_a[i % data_size]);
+    }
+    else if (strcmp(argv[1], "preprocessor_in_statement") == 0) {
+        for(int i = 0; i < iterations; i++) preprocessor_in_statement_confusing(values_a[i % data_size]);
+        for(int i = 0; i < iterations; i++) preprocessor_in_statement_clean(values_a[i % data_size]);
+    }
+    else if (strcmp(argv[1], "change_of_literal_encoding") == 0) {
+        for(int i = 0; i < iterations; i++) change_of_literal_encoding_confusing(values_a[i % data_size]);
+        for(int i = 0; i < iterations; i++) change_of_literal_encoding_clean(values_a[i % data_size]);
     }
     else {
         printf("Error: Unknown '%s' atom.\n", argv[1]);

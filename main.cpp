@@ -15,6 +15,16 @@ int main(int argc, char* argv[]) {
         std::cout << "  infix_precedence\n";
         std::cout << "  conditional_operator\n";
         std::cout << "  post_increment\n";
+        std::cout << "  repurposed_variable\n";
+        std::cout << "  pre_increment\n";
+        std::cout << "  comma_operator\n";
+        std::cout << "  reversed_subscripts\n";
+        std::cout << "  type_conversion\n";
+        std::cout << "  logic_as_control_flow\n";
+        std::cout << "  assignment_as_value\n";
+        std::cout << "  macro_operator_precedence\n";
+        std::cout << "  preprocessor_in_statement\n";
+        std::cout << "  change_of_literal_encoding\n";
         return 1;
     }
 
@@ -102,6 +112,138 @@ int main(int argc, char* argv[]) {
         index = 0;
         bench.run("Clean", [&] {
             post_increment_clean(values_a[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "repurposed_variable") {
+        
+        bench.run("Confusing", [&] {
+            repurposed_variable_confusing(values_a[index & MASK], values_b[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            repurposed_variable_clean(values_a[index & MASK], values_b[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "pre_increment") {
+        
+        bench.run("Confusing", [&] {
+            pre_increment_confusing(values_a[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            pre_increment_clean(values_a[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "comma_operator") {
+        
+        bench.run("Confusing", [&] {
+            comma_operator_confusing(values_a[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            comma_operator_clean(values_a[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "reversed_subscripts") {
+        
+        bench.run("Confusing", [&] {
+            // Garante indice 0, 1 ou 2 para string "abc"
+            reversed_subscripts_confusing((index & MASK) % 3);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            reversed_subscripts_clean((index & MASK) % 3);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "type_conversion") {
+        
+        bench.run("Confusing", [&] {
+            // O denominador eh values_b (varia de 1 a 5), entao nunca causara divisao por zero
+            type_conversion_confusing(values_a[index & MASK], values_b[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            type_conversion_clean(values_a[index & MASK], values_b[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "logic_as_control_flow") {
+        
+        bench.run("Confusing", [&] {
+            logic_as_control_flow_confusing(conditions[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            logic_as_control_flow_clean(conditions[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "assignment_as_value") {
+        
+        bench.run("Confusing", [&] {
+            assignment_as_value_confusing(values_a[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            assignment_as_value_clean(values_a[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "macro_operator_precedence") {
+        
+        bench.run("Confusing", [&] {
+            macro_operator_precedence_confusing(values_a[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            macro_operator_precedence_clean(values_a[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "preprocessor_in_statement") {
+        
+        bench.run("Confusing", [&] {
+            preprocessor_in_statement_confusing(values_a[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            preprocessor_in_statement_clean(values_a[index & MASK]);
+            index++;
+        });
+
+    }
+    else if (chosen_atom == "change_of_literal_encoding") {
+        
+        bench.run("Confusing", [&] {
+            change_of_literal_encoding_confusing(values_a[index & MASK]);
+            index++;
+        });
+        index = 0;
+        bench.run("Clean", [&] {
+            change_of_literal_encoding_clean(values_a[index & MASK]);
             index++;
         });
 
