@@ -22,7 +22,7 @@ do
     while [ $SUCCESS -eq 0 ]; do
         echo -n "Running execution $i of $EXECUTIONS... "
 
-        taskset -c 0 ./benchmark_linux "$ATOM" > tmp_nano.log
+        taskset -c 0 ./benchmark "$ATOM" > tmp_nano.log
 
         sed -i 's/\x1b\[[0-9;]*m//g' tmp_nano.log
 
