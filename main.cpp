@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
     bench.title("Atom: " + chosen_atom);
     bench.relative(true);
 
-    if (chosen_atom == "omitted_curly") {
+    if (chosen_atom == "omitted_curly_braces") {
         
         bench.run("Confusing", [&] {
             omitted_curly_braces_confusing(conditions[index & MASK]);
