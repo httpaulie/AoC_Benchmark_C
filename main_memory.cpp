@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
         printf("Error: No specified atom.\n");
         printf("Correct use: .\\benchmark_memoria <atom_name>\n\n");
         printf("Available options:\n");
-        printf("  omitted_curly\n");
+        printf("  omitted_curly_braces\n");
         printf("  implicit_predicate\n");
         printf("  infix_precedence\n");
         printf("  conditional_operator\n");
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     printf(" Iterations: %d\n", iterations);
     printf("==========================================\n\n");
 
-    if (strcmp(argv[1], "omitted_curly") == 0) {
+    if (strcmp(argv[1], "omitted_curly_braces") == 0) {
         for(int i = 0; i < iterations; i++) omitted_curly_braces_confusing(conditions[i % data_size]);
         for(int i = 0; i < iterations; i++) omitted_curly_braces_clean(conditions[i % data_size]);
     } 

@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
         std::cout << "No specified atom.\n";
         std::cout << "How to use: .\\benchmark.exe <atom_name>\n\n";
         std::cout << "Available options:\n";
-        std::cout << "  omitted_curly\n";
+        std::cout << "  omitted_curly_braces\n";
         std::cout << "  implicit_predicate\n";
         std::cout << "  infix_precedence\n";
         std::cout << "  conditional_operator\n";
